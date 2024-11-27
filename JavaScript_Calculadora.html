@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+    <!-- Dentro do head vai o javascript -->
+    <script type="text/javascript">
+        // Função soma
+        function soma() {
+            form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) + parseFloat(form_calculadora.n2.value);
+        }
+
+        // Função subtração
+        function subtracao() {
+            form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) - parseFloat(form_calculadora.n2.value);
+        }
+
+        // Função multiplicação
+        function multiplicacao() {
+            form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) * parseFloat(form_calculadora.n2.value);
+        }
+
+        // Função divisão
+        function divisao() {
+            let divisor = parseFloat(form_calculadora.n2.value);
+            if (divisor !== 0) {
+                form_calculadora.resultado.value = parseFloat(form_calculadora.n1.value) / divisor;
+            } else {
+                form_calculadora.resultado.value = 'Erro: Divisão por zero';
+            }
+        }
+        
+        // Função limpar
+        function limpar() {
+            form_calculadora.n1.value = '';
+            form_calculadora.n2.value = '';
+            form_calculadora.resultado.value = '';
+        }
+    </script>
+    <!-- Término do javascript -->
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <p><mark style="background-color:yellow">Calculadora simples com operações básicas.</mark></p>
+
+    <!-- Aqui começa o formulário que recebeu uma identificação, um nome. -->
+    <form name="form_calculadora">
+        Digite o primeiro número: <input name="n1" id="n1" type="text" autofocus><br>
+        Digite o segundo número: <input name="n2" id="n2" type="text"><br><br>
+
+        <!-- Botões para as operações -->
+        <input type="button" onclick="soma()" value="Somar">
+        <input type="button" onclick="subtracao()" value="Subtrair">
+        <input type="button" onclick="multiplicacao()" value="Multiplicar">
+        <input type="button" onclick="divisao()" value="Dividir"><br><br>
+
+        <!-- Resultado da operação -->
+        O resultado é: <output name="resultado" id="resultado"></output><br><br>
+
+        <!-- Botão para limpar os campos -->
+        <input type="button" onclick="limpar()" value="Limpar">
+    </form>
+</body>
+</html>
